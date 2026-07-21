@@ -1,0 +1,35 @@
+name: Meme_fetcher
+
+on:
+  schedule:
+    - cron: '50 11 * * *'  # 4:50 PM Pakistan = 11:50 UTC
+    - cron: '0 12 * * *'   # 5:00 PM Pakistan = 12:00 UTC
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Configure git
+        run: |
+          git config user.name "${{ secrets.GIT_USER_NAME }}"
+          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+          
+      - name: Run meme fetcher
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: make cron 

@@ -12,3 +12,4 @@ wheels/
 .pyc
 __pycache__
 dev_only.txt
+.vscode
