@@ -53,6 +53,7 @@ def get_meme_details(url):
     }
 
 if __name__ == "__main__":
-    url = "https://knowyourmeme.com/memes/this-is-fine"
-    details = get_meme_details(url)
-    pprint.pprint(details)
+    # url = "https://knowyourmeme.com/memes/this-is-fine"
+    # details = get_meme_details(url)
+    # pprint.pprint(details)
+    pass
