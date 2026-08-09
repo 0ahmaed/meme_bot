@@ -19,3 +19,4 @@ dupe:
 	cd meme_bot && . ./.venv/bin/activate && cd .. && python3 -m meme_bot.SCRAPER.STORAGE.latest_meme_replacer
 cron:
 	python3 -m meme_bot.main
+

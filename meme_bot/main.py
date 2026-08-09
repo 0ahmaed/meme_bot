@@ -9,6 +9,7 @@ SCRAPED_MEME=packaged_meme()
 SCRAPED_MEME_TITLE=SCRAPED_MEME["title"]
 
 def main():
+    #if there's a new meme, update the storage and send it to discord
     if meme_title_replacer(SCRAPED_MEME_TITLE):
         update_storage_github(SCRAPED_MEME_TITLE)
         sender = DiscordSender(DISCORD_WEBHOOK_URL, SCRAPED_MEME)
